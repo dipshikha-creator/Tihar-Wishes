@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>शुभ दीपावली - Tihar Surprise</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Noto Sans Devanagari", Arial, sans-serif;
+    background: linear-gradient(135deg, #4b0909, #a52a16, #260505);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 25px 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    color: #ffd76a;
+    font-size: 30px;
+    text-shadow: 0 0 15px orange;
+}
+
+.diyas {
+    font-size: 38px;
+    margin: 15px;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px orange; }
+    to { text-shadow: 0 0 25px yellow; }
+}
+
+.card {
+    position: relative;
+    background: #fff5dc;
+    color: #791b10;
+    border: 5px solid #e9b94e;
+    border-radius: 22px;
+    padding: 25px 18px;
+    margin: 25px auto;
+    max-width: 450px;
+    min-height: 330px;
+    box-shadow: 0 0 30px #ffb52e;
+}
+
+.cover h2, .inside h2 {
+    color: #a51e12;
+}
+
+.cover p {
+    color: #743017;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 13px 23px;
+    margin: 8px;
+    background: linear-gradient(45deg, #ffb300, #ffdf78);
+    color: #651000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px #0004;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.inside {
+    display: none;
+    animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.inside p {
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 15px 0;
+}
+
+.diya {
+    font-size: 40px;
+    margin: 15px;
+}
+
+video {
+    width: 100%;
+    max-height: 250px;
+    margin-top: 15px;
+    border-radius: 12px;
+    background: #280000;
+}
+
+.controls {
+    margin-top: 15px;
+}
+
+.footer {
+    color: #ffdf8c;
+    margin-top: 25px;
+}
+
+.sparkle {
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    animation: fall 6s linear infinite;
+    z-index: -1;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🪔 शुभ दीपावली 🪔</h1>
+
+    <div class="diyas">✨ 🌺 🪔 🌺 ✨</div>
+
+    <div class="card" id="card">
+
+        <div class="cover" id="cover">
+
+            <div class="diya">🪔</div>
+
+            <h2>💌 तपाईंका लागि उपहार! 🎁</h2>
+
+            <p>शुभकामना हेर्न यहाँ थिच्नुहोस् ❤️</p>
+
+            <button id="openBtn">
+                🎁 उपहार खोल्नुहोस्
+            </button>
+
+        </div>
+
+        <div class="inside" id="inside">
+
+            <div class="diya">🪔✨🪔</div>
+
+            <h2>🌺 शुभ दीपावली! 🌺</h2>
+
+            <p>
+                यस पावन दीपावलीले तपाईंको जीवनमा
+                सुख, शान्ति, समृद्धि र खुसीको उज्यालो छरोस्। 🙏✨
+            </p>
+
+            <p>
+                तपाईंको घरआँगन सधैं प्रेम ❤️, हाँसो 😊
+                र उज्यालोले भरिरहोस्। 🌸
+            </p>
+
+            <p>
+                माता लक्ष्मीको कृपाले तपाईंका सबै सपना
+                पूरा होऊन्। 💰🌼
+            </p>
+
+            <p>
+                <strong>
+                तपाईं र तपाईंको परिवारमा
+                दीपावलीको हार्दिक मंगलमय शुभकामना! 🪔🎆
+                </strong>
+            </p>
+
+            <p>माया, खुसी र शुभेच्छासहित ❤️🌹</p>
+
+            <div style="font-size:28px">
+                🪔🌺🎇🌸🪔
+            </div>
+
+            <video id="tiharVideo"
+                   src="tihar.mp4"
+                   preload="auto"
+                   playsinline
+                   style="display:none;">
+            </video>
+
+            <p>🎶 हाम्रो तिहारको विशेष संगीत 🎶</p>
+
+            <button id="closeBtn">💌 बन्द गर्नुहोस्</button>
+
+        </div>
+
+    </div>
+
+    <div class="controls">
+
+        <button id="musicBtn">🔊 Music On</button>
+
+        <button id="shareBtn">📲 Share Wishes</button>
+
+    </div>
+
+    <p class="footer">
+        ✨ उज्यालो बाँडौँ, खुसी बाँडौँ ❤️
+    </p>
+
+</div>
+
+<script>
+
+const openBtn = document.getElementById("openBtn");
+const closeBtn = document.getElementById("closeBtn");
+const cover = document.getElementById("cover");
+const inside = document.getElementById("inside");
+const musicBtn = document.getElementById("musicBtn");
+const shareBtn = document.getElementById("shareBtn");
+const video = document.getElementById("tiharVideo");
+
+let musicOn = true;
+
+// Open surprise
+openBtn.addEventListener("click", async function() {
+
+    cover.style.display = "none";
+    inside.style.display = "block";
+
+    video.muted = false;
+    musicOn = true;
+    musicBtn.textContent = "🔊 Music On";
+
+    try {
+        await video.play();
+    } catch (error) {
+        musicBtn.textContent = "▶️ Play Music";
+        console.log("Video playback needs another tap:", error);
+    }
+
+});
+
+// Close surprise
+closeBtn.addEventListener("click", function() {
+
+    video.pause();
+    video.currentTime = 0;
+
+    inside.style.display = "none";
+    cover.style.display = "block";
+
+});
+
+// Music On / Off
+musicBtn.addEventListener("click", async function() {
+
+    if (video.paused) {
+        video.muted = false;
+
+        try {
+            await video.play();
+            musicOn = true;
+            musicBtn.textContent = "🔊 Music On";
+        } catch (error) {
+            musicBtn.textContent = "▶️ Play Music";
+        }
+
+    } else if (musicOn) {
+
+        video.muted = true;
+        musicOn = false;
+        musicBtn.textContent = "🔇 Music Off";
+
+    } else {
+
+        video.muted = false;
+        musicOn = true;
+        musicBtn.textContent = "🔊 Music On";
+
+    }
+
+});
+
+// Share wishes
+shareBtn.addEventListener("click", async function() {
+
+    const wishText =
+    "🪔 शुभ दीपावली 🪔\n\n" +
+    "तपाईं र तपाईंको परिवारमा दीपावलीको हार्दिक मंगलमय शुभकामना! ❤️";
+
+    if (navigator.share) {
+
+        try {
+            await navigator.share({
+                title: "शुभ दीपावली",
+                text: wishText,
+                url: window.location.href
+            });
+        } catch (error) {
+            console.log("Sharing cancelled.");
+        }
+
+    } else {
+
+        try {
+            await navigator.clipboard.writeText(
+                wishText + "\n" + window.location.href
+            );
+            alert("शुभकामना Copy भयो! ❤️");
+        } catch (error) {
+            alert(wishText);
+        }
+
+    }
+
+});
+
+// Falling festive decorations
+const decorations = ["✨", "🌸", "🌺", "⭐", "🪔"];
+
+function createSparkle() {
+
+    const sparkle = document.createElement("div");
+
+    sparkle.className = "sparkle";
+    sparkle.textContent =
+        decorations[Math.floor(Math.random() * decorations.length)];
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.fontSize = (15 + Math.random() * 18) + "px";
+    sparkle.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(function() {
+        sparkle.remove();
+    }, 8000);
+
+}
+
+setInterval(createSparkle, 500);
+
+</script>
+
+</body>
+</html>
